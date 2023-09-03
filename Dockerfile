@@ -27,6 +27,9 @@ sudo chmod -R 777 . && \
 sudo cp lv_drv_conf_template.h lv_drv_conf.h && \
 sudo chmod 777 lv_drv_conf.h && \
 sudo chmod -R 777 . && \
+cd ..
+sudo chmod -R 777 lv_drivers && \
+cd lv_drivers && \
 ls && \
 cmake \
 -DCMAKE_BUILD_TYPE=Release \
