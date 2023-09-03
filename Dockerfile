@@ -10,6 +10,7 @@ gcc  \
 python3  \
 libpng-dev  \
 ruby-full  \
+pkg-config \
 gcovr  \
 cmake
  
