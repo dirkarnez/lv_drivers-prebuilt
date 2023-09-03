@@ -26,7 +26,7 @@ git checkout v8.3.0 && \
 cp ../lv_drv_conf.h ./ && \
 sudo chmod 777 lv_drv_conf.h && \
 sudo chmod -R 777 . && \
-cd ..
+cd .. && \
 sudo chmod -R 777 lv_drivers && \
 cd lv_drivers && \
 ls && \
