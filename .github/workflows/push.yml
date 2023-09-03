@@ -1,0 +1,35 @@
+name: docker-compose-actions-workflow
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - 'c*'
+      
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      libraryName: lvgl
+      targetZip: lvgl-${{ github.ref_name }}-gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf.zip # lvgl-v8.3.9.zip
+    steps:
+      - uses: actions/checkout@v3
+      
+      - run: mkdir -p ./workspace
+      
+      - name: Build the stack
+        run: docker-compose up --build && docker-compose down
+        
+#       - name: Archive Release
+#         uses: thedoctor0/zip-release@master
+#         with:
+#           type: 'zip'
+#           directory: "workspace/fhir"
+#           filename: "${{ env.targetZip }}"
+
+      - name: Release prebuilt
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "workspace/lvgl/cmake-build/lvgl-installation/${{ env.targetZip }}"
+          allowUpdates: true
+          token: ${{ secrets.GITHUB_TOKEN }}
