@@ -30,6 +30,6 @@ jobs:
       - name: Release prebuilt
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "workspace/lv_drivers/cmake-build/lvgl-installation/${{ env.targetZip }}"
+          artifacts: "workspace/lv_drivers/cmake-build/lv_drivers-installation/${{ env.targetZip }}"
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
