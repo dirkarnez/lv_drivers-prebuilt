@@ -23,6 +23,7 @@ aarch64-none-elf-g++ --version && \
 git clone --recurse-submodules https://github.com/lvgl/lv_drivers.git && \ 
 cd lv_drivers && \
 git checkout v8.3.0 && \
+cp lv_drv_conf_template.h lv_drv_conf.h && \
 cmake \
 -DCMAKE_BUILD_TYPE=Release \
 -DBUILD_SHARED_LIBS=OFF \
